@@ -6,7 +6,7 @@ import (
 
 	"rsc.io/quote"
 
-	"Example/greetings"
+	"example.com/greetings"
 )
 
 func main() {
