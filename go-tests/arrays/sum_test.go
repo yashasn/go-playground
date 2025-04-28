@@ -43,7 +43,6 @@ func TestSumAllTails(t *testing.T) {
 	t.Run("Sum of slices", func(t *testing.T) {
 		got := SumAllTails([]int{1, 2, 3}, []int{1, 1, 1})
 		want := []int{5, 2}
-
 		checkSum(t, got, want)
 	})
 	t.Run("Sum of slices with empty slices", func(t *testing.T) {
