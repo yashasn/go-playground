@@ -1,5 +1,8 @@
 package main
 
+/*since it is main-package, go build will create an executable with a name of directory. All go files within this directory should belong to the
+same package and the directory name should be in lowercase.*/
+
 import "fmt"
 
 const englishHelloPrefix = "Hello, "

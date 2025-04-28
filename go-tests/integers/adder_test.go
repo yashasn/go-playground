@@ -18,8 +18,7 @@ func TestAdd(t *testing.T) {
 }
 
 /*
-	Example functions act as executable documentation. nlike traditional comments,
-
+Example functions act as executable documentation. Unlike traditional comments,
 these examples are verified by the Go test runner, ensuring they remain accurate as your code evolves.
 When you use the go doc tool on your package or function, the content of your example functions
 (specifically the part before the // Output: comment and the expected output itself) is included in the generated documentation
