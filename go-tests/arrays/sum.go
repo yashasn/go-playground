@@ -25,3 +25,17 @@ func SumWSlices(numbers []int) int {
 	}
 	return sum
 }
+
+func SumAllTails(numbersSlice ...[]int) []int {
+	var sums []int
+	for _, nums := range numbersSlice {
+		if len(nums) == 0 {
+			sums = append(sums, 0)
+		} else {
+			tails := nums[1:]
+			sums = append(sums, SumWSlices(tails))
+		}
+
+	}
+	return sums
+}
