@@ -20,6 +20,7 @@ type Circle struct {
 }
 
 // Creating a method for Type Rectangle
+// (r Reactangle) is called recievers
 func (r Rectangle) Area() float64 {
 	return r.Width * r.Height
 }

@@ -17,6 +17,7 @@ func TestArea(t *testing.T) {
 	/* Helper does not need to concern itself with whether the shape is a Rectangle or a Circle or a Triangle.
 	By declaring an interface, the helper is decoupled from the concrete types
 	and only has the method it needs to do its job.*/
+
 	checkArea := func(t *testing.T, shape Shape, want float64) {
 		t.Helper()
 		got := shape.Area()
@@ -37,4 +38,23 @@ func TestArea(t *testing.T) {
 		checkArea(t, circle, want)
 	})
 
+}
+
+func TestAreaTableTCs(t *testing.T) {
+	// Table driven tests using anonymous structs
+	areaTests := []struct {
+		shape Shape
+		want  float64
+	}{
+		{Rectangle{10.0, 5.0}, 50.0},
+		{Circle{50.0}, 314.1592653589793},
+	}
+	//NOTE: %#v used to print structs with all its values
+	for _, test := range areaTests {
+		got := test.shape.Area()
+		if got != test.want {
+			t.Errorf("%#v got %g want %g", test.shape, got, test.want)
+		}
+
+	}
 }
