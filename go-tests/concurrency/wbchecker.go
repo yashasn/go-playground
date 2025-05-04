@@ -39,6 +39,7 @@ func CheckWebsites(wc WebsiteChecker, urls []string) map[string]bool {
 	for i := 0; i < len(urls); i++ {
 		//receive results from the channel one by one
 		//perform the map write synchronously, in a single thread — no race condition!
+		//this is a blocking call, as it is waiting for a value in the channel
 		r := <-resultChannel
 		results[r.url] = r.status
 	}
