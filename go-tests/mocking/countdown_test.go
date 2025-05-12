@@ -12,7 +12,7 @@ type SpyOperations struct {
 const sleep = "sleep"
 const write = "write"
 
-// Thes mock the order of operations. This helps us test the Countdown func more finely
+// These mock the order of operations. This helps us test the Countdown func more finely
 func (s *SpyOperations) Sleep() {
 	s.Calls = append(s.Calls, "sleep")
 }

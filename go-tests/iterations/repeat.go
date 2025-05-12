@@ -10,7 +10,7 @@ func Repeat(character string, repeatCount int) string {
 	return repeated
 
 	/* strings in golang are IMMUTABLE! So every concatenation involves copying memory and created new string. Impacts performance.
-	Use StringBuilder instead which minimizes memory.
+	Use StringBuilder instead minimizes memory.
 	*/
 }
 

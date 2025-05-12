@@ -41,15 +41,12 @@ func TestWallet(t *testing.T) {
 	t.Run("withdraw", func(t *testing.T) {
 		//able to set balance because it is set as private within the same package
 		wallet := Wallet{balance: Bitcoin(20)}
-		//You don’t need to manually write &wallet.Deposit(10) — Go implicitly handles that
 		wallet.Withdraw(Bitcoin(10))
 		assertBalance(t, wallet, Bitcoin(10))
 	})
 
 	t.Run("withdraw insufficient funds", func(t *testing.T) {
-		//able to set balance because it is set as private within the same package
 		wallet := Wallet{balance: Bitcoin(20)}
-		//You don’t need to manually write &wallet.Deposit(10) — Go implicitly handles that
 		err := wallet.Withdraw(Bitcoin(30))
 
 		assertError(t, err, ErrInsufficientFunds.Error())
