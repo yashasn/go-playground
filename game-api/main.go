@@ -8,21 +8,14 @@ import (
 	"strconv"
 
 	"github.com/yashasn/game-api/server"
+	"github.com/yashasn/game-api/store"
 )
-
-type InMemoryStore struct {
-}
-
-func (s *InMemoryStore) GetPlayerScore(name string) int {
-	return 1
-}
 
 func main() {
 	/*The HandlerFunc type is an adapter to allow the use of ordinary functions as HTTP handlers.
 	If f is a function with the appropriate signature, HandlerFunc(f) is a Handler that calls f */
 	//handler := http.HandlerFunc(PlayerServer)
-	store := InMemoryStore{}
-	server := &server.PlayerServer{Store: &store}
+	server := &server.PlayerServer{Store: store.NewInMemoryPlayerStore()}
 	//This will start a web server listening on a port, creating a goroutine for every request and running it against a handler
 	port, err := getPort()
 	if err != nil {
