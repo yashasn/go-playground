@@ -140,7 +140,6 @@ func pingUrl(client *http.Client, url string, timeout time.Duration) Result {
 		return formatResponse(url, Error, 0*time.Second, err)
 	}
 	// Send request
-	//TODO- need to prevent client creation for each URL
 	resp, err := client.Do(req)
 	duration := time.Since(startTime)
 	if err != nil {
