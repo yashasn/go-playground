@@ -1,6 +1,7 @@
 PACKAGES := $(shell go list ./...)
 VERSION:=1.0.0
 LDFLAGS := -ldflags "-X main.Version=${VERSION}"
+MODULE = $(shell go list -m)
 
 
 .PHONY: test
@@ -16,7 +17,7 @@ test-coverage: ## run unit tests with coverage
 
 .PHONY: build
 build:  ## build the API server binary
-	CGO_ENABLED=0 go build ${LDFLAGS} -a -o server $(MODULE)
+	CGO_ENABLED=0 go build ${LDFLAGS} -a -o gameserver $(MODULE)
 
 .PHONY: run
 run: ## run the API server

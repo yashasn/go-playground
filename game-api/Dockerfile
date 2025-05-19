@@ -1,6 +1,6 @@
 FROM golang:1.24-alpine AS build
 RUN apk update && \
-    apk add make ca-certificates 
+    apk add make 
 
 WORKDIR /app
 
@@ -18,11 +18,11 @@ FROM alpine:latest
 
 WORKDIR /app
 
-COPY --from=build /app/server .
+COPY --from=build /app/gameserver .
 
 RUN ls -la
 
 ENV PORT 8080 
 EXPOSE 8080
 
-CMD ["./server"]
+CMD ["./gameserver"]
